@@ -16,7 +16,7 @@ function App() {
   // console.log("Auth", userObject)
   
   return (
-
+    <div className="App">
     <GoogleAuthProvider>
     <Routes>
      
@@ -28,10 +28,10 @@ function App() {
 
     </Routes>
     </GoogleAuthProvider>
-    // <div className="App">
-    //   <NaviagtionBar />
-    //   <Task />
-    // </div>
+   
+      {/* <NaviagtionBar />
+      <Task /> */}
+   </div>
   );
 }
 

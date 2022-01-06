@@ -17,8 +17,6 @@ export default function Task() {
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    // const [title2, setTitle2] = useState('')
-    // const [description2, setDescription2] = useState('')
     const [tasks, setTasks] = useState([])
     const [open, setOpen] = React.useState(false);
     const [currentTaskId, setCurrentTaskId] = useState(0);
@@ -143,9 +141,10 @@ export default function Task() {
             {description}
         </Paper>
 
-        <h1> TASKS</h1>
+        
         
         <Paper elevation={3} style={paperStyle2} >
+            <h1 className="tasks-header"> TASKS</h1>
             <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap'  }} >
             {tasks.map(task => {
                 return  <Card sx={{ maxWidth: 345 }} key={task.id} style={{margin:"18px", marginLeft:"54px",  textAlign:"left", width:"250px"}}>

@@ -1,5 +1,5 @@
 import  React, {useContext, useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import { useGoogleAuth, GoogleAuthContext } from './GoogleAuthProvider';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -13,8 +13,8 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
 export default function NaviagtionBar() {
+  
     const [userName, setUserName] = useState('')
-    const [userEmail, setUserEmail] = useState('')
     const [userPicture, setUserPicture] = useState('')
 
     const userObject = useContext(GoogleAuthContext)
@@ -22,11 +22,11 @@ export default function NaviagtionBar() {
     const { signOut, isSignedIn } = useGoogleAuth();
     const navigate = useNavigate();
     console.log("is2", isSignedIn)
+
+    
     useEffect(() => {
-        if(!isSignedIn){
-            navigate("/")
-            setUserName("")
-           setUserPicture("")
+        if(!isSignedIn){ 
+          navigate("/")
         }
         else{
         setUserName(userObject.googleUser.profileObj.name)
@@ -36,8 +36,8 @@ export default function NaviagtionBar() {
     },[])
     
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1 }} >
+      <AppBar position="inherit" style={{ borderRadius: "80px" }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -54,7 +54,9 @@ export default function NaviagtionBar() {
           <Stack direction="row" spacing={2}>
             <Avatar alt="Remy Sharp" src={userPicture} />
             </Stack>
+            {/* <Link to="/"> */}
           <Button color="inherit" onClick={signOut}>Logout</Button>
+          {/* </Link> */}
         </Toolbar>
       </AppBar>
     </Box>

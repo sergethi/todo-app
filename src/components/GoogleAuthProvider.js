@@ -16,7 +16,7 @@ export const GoogleAuthProvider = ({children}) => {
 
       
         try {
-            console.log("user", googleAuth.googleUser.profileObj)
+            if(googleAuth) console.log("user", googleAuth.googleUser.profileObj)
            
            
           } catch (error) {
